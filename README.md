@@ -34,6 +34,8 @@ Low Stock (less than 10 items)
 
 In Stock
 
+
+
 Role-Based Access
 
 Admin → Full access (add, edit, delete)
@@ -42,6 +44,8 @@ Manager → Can update stock only
 
 Viewer → Can only view products
 
+
+
 Dashboard
 
 Total number of products
@@ -49,6 +53,8 @@ Total number of products
 Low stock count
 
 Total inventory value
+
+
 
 Additional Features
 
