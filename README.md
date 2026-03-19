@@ -12,13 +12,31 @@ This is a Flutter-based inventory management application built using Firebase an
 It supports role-based access so different users have different permissions inside the app.
 
 Features
-Authentication
+
+
+ Authentication
 
 Login and Register using Firebase Authentication
 
 Users are assigned roles (Admin, Manager, Viewer)
 
+Default Credentials
 
+Admin
+
+Email: admin@gmail.com
+
+Password: admin123
+
+Manager
+
+Email: manager@gmail.com
+
+Password: manager123
+
+Viewer
+
+Any user can register and will be assigned the viewer role by default
 
 
 Product Management
