@@ -16,7 +16,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  String selectedRole = "viewer";
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +78,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                         const SizedBox(height: 30),
-
-                  
                         TextField(
                           controller: emailController,
                           style: const TextStyle(color: Colors.white),
@@ -92,10 +95,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                         ),
-
                         const SizedBox(height: 15),
-
-           
                         TextField(
                           controller: passwordController,
                           obscureText: true,
@@ -114,45 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                         ),
-
-                        const SizedBox(height: 15),
-
-                 
-                        DropdownButtonFormField<String>(
-                          value: selectedRole,
-                          dropdownColor: Colors.blueGrey.shade800,
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.person,
-                                color: Colors.white),
-                            labelText: "Select Role",
-                            labelStyle:
-                                const TextStyle(color: Colors.white70),
-                            filled: true,
-                            fillColor: Colors.white.withOpacity(0.1),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
-                          items: ["admin", "manager", "viewer"]
-                              .map(
-                                (role) => DropdownMenuItem(
-                                  value: role,
-                                  child: Text(role.toUpperCase()),
-                                ),
-                              )
-                              .toList(),
-                          onChanged: (value) {
-                            setState(() {
-                              selectedRole = value!;
-                            });
-                          },
-                        ),
-
                         const SizedBox(height: 25),
-
-                   
                         SizedBox(
                           width: double.infinity,
                           height: 50,
@@ -164,12 +126,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                             ),
                             onPressed: () {
+                              final email = emailController.text.trim();
+                              final password = passwordController.text.trim();
+
                               context.read<AuthBloc>().add(
                                     RegisterRequested(
-                                      email: emailController.text.trim(),
-                                      password:
-                                          passwordController.text.trim(),
-                                      role: selectedRole,
+                                      email: email,
+                                      password: password,
+                                      role: "viewer",
                                     ),
                                   );
                             },
@@ -178,14 +142,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     color: Colors.white)
                                 : const Text(
                                     "Register",
-                                    style: TextStyle(fontSize: 16, color: Colors.white),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.white),
                                   ),
                           ),
                         ),
-
                         const SizedBox(height: 10),
-
-                    
                         if (state is AuthFailure)
                           Text(
                             state.message,
