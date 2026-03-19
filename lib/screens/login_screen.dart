@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 30),
 
-                        /// EMAIL
+              
                         TextField(
                           controller: emailController,
                           style: const TextStyle(color: Colors.white),
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         const SizedBox(height: 15),
 
-                        /// PASSWORD
+                 
                         TextField(
                           controller: passwordController,
                           obscureText: true,
@@ -128,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         const SizedBox(height: 25),
 
-                        /// LOGIN BUTTON
+                  
                         SizedBox(
                           width: double.infinity,
                           height: 50,
@@ -160,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         const SizedBox(height: 10),
 
-                        /// REGISTER
+                   
                         TextButton(
                           onPressed: () {
                             Navigator.push(
