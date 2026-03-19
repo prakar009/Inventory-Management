@@ -74,7 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         const SizedBox(height: 30),
 
-                        /// EMAIL
+                  
                         TextField(
                           controller: emailController,
                           style: const TextStyle(color: Colors.white),
@@ -95,7 +95,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                         const SizedBox(height: 15),
 
-                        /// PASSWORD
+           
                         TextField(
                           controller: passwordController,
                           obscureText: true,
@@ -117,7 +117,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                         const SizedBox(height: 15),
 
-                        /// ROLE DROPDOWN
+                 
                         DropdownButtonFormField<String>(
                           value: selectedRole,
                           dropdownColor: Colors.blueGrey.shade800,
@@ -152,7 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                         const SizedBox(height: 25),
 
-                        /// REGISTER BUTTON
+                   
                         SizedBox(
                           width: double.infinity,
                           height: 50,
@@ -185,7 +185,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                         const SizedBox(height: 10),
 
-                        /// ERROR
+                    
                         if (state is AuthFailure)
                           Text(
                             state.message,
